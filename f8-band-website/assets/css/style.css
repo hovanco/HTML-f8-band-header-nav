@@ -1,0 +1,94 @@
+/* 
+NGUYÊN TẮC PHÂN TÍCH:
+1. từ ngoài vào trong
+2. từ trên xuống dưới
+3. từ tổng quan đến chi tiết
+
+trước khi code css cần trả lời các câu hỏi sau:
+1. Vị trí
+2. Kích thước (width, height)
+3. Màu sắc
+4. Kiểu dáng (kiểu chữ, hình  dáng, font)
+
+*/
+html {
+  font-size: 62.5%; /* 1rem = 10px  */
+}
+
+/* * *,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+} */
+
+body {
+  font-family:  Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+} 
+
+#main {
+
+}
+
+#header {
+  height: 4.6rem;
+  background-color: #000;
+
+} 
+
+#nav {
+
+}
+
+#nav li {
+  /*  li la the block nen no xuong hang => thanh the inline */
+  display: inline-block;
+}
+
+
+#nav li a {
+  color: #fff;
+  text-decoration: none;
+
+  /* bởi vì text sẽ nằm chinh giữa line-height (khi bôi đen)
+  của nó lên khi height của line-height bằng với height
+  của nav thì text vẫn nằm chính giữa và = 4.6rem
+  */
+  line-height: 4.6rem; 
+  padding: 0 2.4rem;
+
+  /* mặc định thẻ a là inline => ko xét được width và height
+  ==>chuyển thành inline-block để xét theo chiều cao của height-line
+  để hover */
+  display: inline-block;
+}
+
+#nav li:hover a {
+  /* hover vào thẻ li để sau này khi ta hover vào 
+  li của nav cha thì nó sẽ active luôn cả li của
+  nav cha và li của nav con*/
+  color: #000;
+  background-color: #ccc;
+}
+
+#nav .subnav {
+  display: none;
+}
+
+#slider {
+
+}
+
+#content {
+
+}
+
+#footer {
+
+}
