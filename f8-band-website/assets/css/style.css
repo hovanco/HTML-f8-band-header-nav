@@ -15,18 +15,6 @@ html {
   font-size: 62.5%; /* 1rem = 10px  */
 }
 
-/* * *,
-*:before,
-*:after {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-} */
-
 body {
   font-family:  Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
@@ -37,52 +25,139 @@ body {
 }
 
 #header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   height: 4.6rem;
   background-color: #000;
-
 } 
 
 #nav {
+  display: inline-block;
+}
 
+
+#nav, .subnav {
+  list-style-type: none;
+}
+
+#nav > li {
+  /*  li la the block nen no xuong hang => thanh the inline */
+  /* display: inline-block; */
+  display: inline-block;
 }
 
 #nav li {
-  /*  li la the block nen no xuong hang => thanh the inline */
-  display: inline-block;
+  /* để xét vị trí cho menu con là subnav */
+  position: relative;
 }
 
-
-#nav li a {
+/* trỏ trực tiếp den the a cua menu cha */
+#nav > li > a {
   color: #fff;
-  text-decoration: none;
+  text-transform: uppercase;
+}
 
-  /* bởi vì text sẽ nằm chinh giữa line-height (khi bôi đen)
-  của nó lên khi height của line-height bằng với height
-  của nav thì text vẫn nằm chính giữa và = 4.6rem
-  */
+/* nếu để như thế nay thì cả thẻ a của menu cha và con đều nhận
+=> trỏ thẻ trực tiếp */
+#nav li a {
+  text-decoration: none;
   line-height: 4.6rem; 
   padding: 0 2.4rem;
-
-  /* mặc định thẻ a là inline => ko xét được width và height
-  ==>chuyển thành inline-block để xét theo chiều cao của height-line
-  để hover */
-  display: inline-block;
+  display: block;
 }
 
-#nav li:hover a {
-  /* hover vào thẻ li để sau này khi ta hover vào 
-  li của nav cha thì nó sẽ active luôn cả li của
-  nav cha và li của nav con*/
+#nav .subnav li:hover a,
+#nav > li:hover > a {
   color: #000;
   background-color: #ccc;
 }
 
+/* khi hover vào thẻ a (li) của menu cha
+thì đồng thời menu con cũng xuất hiện */
+#nav li:hover .subnav {
+  display: block;
+}
+
+/* ẩn menu con trước khi chưa hover */
 #nav .subnav {
   display: none;
+  position: absolute;
+  top: 100%; /* = width của thẻ cha chưa nó là nav = 46px */
+  left: 0;
+  min-width: 16rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#nav .subnav a {
+ color: #000;
+ padding: 0 12px;
+ line-height: 3.8rem;
+}
+
+#header .search-btn {
+  float: right;
+  padding: 0 21px;
+}
+
+#header .search-btn:hover {
+  cursor: pointer;
+  background-color: #f44336;
+}
+
+#header .search-icon {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 4.6rem;
 }
 
 #slider {
+/* boi vi fan slider chiem ca fan cua  header
+=> margint-top bang voi height cua header  */
+ margin-top: 4.6rem;
 
+ /* lam cho ti le chieu cao bang 1/2 va chieu rong, la 2: 1 */
+ padding-top: 50%;
+ position: relative;
+ background: url("/assets/img/slider/band-slider1.jpg") top center/ cover no-repeat;
+ /* object-fit: cover;  hinh phu kin khung*/
+ /* background-image: url(images/image.png); */
+ /* background-repeat: repeat | repeat-x | repeat-y | no-repeat */
+ /* background-position: top center; */
+
+}
+
+#slider .text-content {
+  position: absolute;
+  bottom: 4.7rem;
+  color: #fff;
+
+  /* cach 1 cho text nam chinh giua */
+  /* left: 50%;
+  transform: translateX(-50%);
+  text-align: center; */
+
+  /* cach 2 */
+  width: 100%;
+  text-align: center;
+
+  /* cach3 */
+  /* right: 0;
+  left: 0;
+  text-align: center; */
+} 
+
+#slider .text-heading {
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+
+#slider .text-desc {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 #content {
