@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link 
+  rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+  crossorigin="anonymous" />
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>f8-band-website</title>
 </head>
 <body>
   <div id="main">
+    <!-- Begin Header -->
     <header id="header">
+      <!-- Begin Nav -->
       <ul id="nav">
         <li><a href="#">Home</a></li>
         <li><a href="#">Band</a></li>
         <li><a href="#">Tour</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="#">More</a>
+        <li><a href="#">More <i class="fas fa-sort-down"></i></a>
           <ul class="subnav">
             <li><a href="">Merchandise</a></li>
             <li><a href="">Extras</a></li>
@@ -24,9 +30,86 @@
           </ul>
         </li>
       </ul>
+      <!-- End Nav -->
+      <!-- Begin Search -->
+      <div class="search-btn">
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      <!-- End Search -->
      </header>
-    <div id="slider"> </div>
-    <div id="content"> </div>
+     <!-- End Header -->
+
+
+    <div id="slider"> 
+      <div class="text-content">
+        <h2 class="text-heading">New York</h2>
+        <h6 class="text-desc"> The atmosphere in New York islorem ipsum</h6>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="content-section">
+        <h2 class="section-heading">THE BAND</h2>
+        <p class="section-sub-heading">We love music</p>
+        <p class="about-text">Lorem ipsum dolor sit amet, 
+          consectetur adipisicing elit. Numquam ducimus ad voluptas
+          amet minima quos pariatur voluptates, vero esse reprehenderit
+          eum velit sapiente dicta ratione neque exercitationem error 
+          natus tenetur ab dolor sit omnis molestias blanditiis. 
+          Tempora ratione, recusandae ut excepturi veritatis 
+          necessitatibus maxime ducimus repellat totam in tenetur 
+          laboriosam, magni quam debitis. Dignissimos vero soluta 
+          quisquam voluptatum unde suscipit, repellendus alias vel 
+          nobis iusto qui obcaecati sunt beatae modi hic eius quas 
+          architecto doloremque quod cumque adipisci? Reiciendis 
+          maxime, ut odit quas laborum possimus veritatis harum! 
+          Quis minus fuga modi minima, ipsa tempore eveniet, quos
+          at atque debitis amet. Ipsum dolor suscipit numquam 
+          laboriosam distinctio itaque optio sed nesciunt, officia
+          blanditiis laborum magnam, sit qui cupiditate amet fuga
+          aliquid corrupti id sunt dolores! Provident iste debitis,
+          ducimus ipsam obcaecati illum corporis mollitia omnis 
+          ipsam obcaecati illum corporis mollitia omnis 
+        </p>
+
+
+        <div class="members-list">
+          <div class="member-item">
+            <p class="member-name">Lee Min Ho</p>
+            <img src="./assets/img/band/member1.jpg" alt="Lee Min Ho" class="member-img">
+          </div>
+
+          <div class="member-item">
+            <p class="member-name">Be Rain</p>
+            <img src="./assets/img/band/member1.jpg" alt="Be Rain" class="member-img">
+          </div>
+
+          <div class="member-item">
+            <p class="member-name">G.Dragon </p>
+            <img src="./assets/img/band/member1.jpg" alt="G.Dragon" class="member-img">
+          </div>
+          
+          <div class="clear"></div>
+
+        </div>
+      </div>
+
+
+      <div class="content-section">
+        <h2 class="section-heading">TOUR DATES</h2>
+        <p class="section-sub-heading">Remember to books your tickets!</p>
+      </div>
+
+
+      <div class="content-section">
+        <h2 class="section-heading">CONTACT</h2>
+        <p class="section-sub-heading">Fan? Drop a note!</p>
+      </div>
+
+
+    </div>
+
+
     <div id="footer"> </div>
   </div>
 </body>
