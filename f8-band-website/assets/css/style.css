@@ -15,80 +15,372 @@ html {
   font-size: 62.5%; /* 1rem = 10px  */
 }
 
-/* * *,
-*:before,
-*:after {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-} */
-
 body {
-  font-family:  Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
-} 
-
-#main {
-
 }
+
+/* BEGIN COMMON */
+
+.clear {
+  clear: both;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.col {
+  float: left;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.col-half {
+  width: 50%;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.col-third {
+  width: 31.33333%;
+}
+.text-center {
+  text-align: center !important;
+}
+
+.col-float {
+  float: left;
+}
+
+.mt-8 {
+  margin-top: 8px !important;
+}
+
+.mt-16 {
+  margin-top: 16px !important;
+}
+/* END COMMON */
 
 #header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   height: 4.6rem;
   background-color: #000;
-
-} 
+}
 
 #nav {
+  display: inline-block;
+}
 
+#nav,
+.subnav {
+  list-style-type: none;
+}
+
+#nav > li {
+  /*  li la the block nen no xuong hang => thanh the inline */
+  /* display: inline-block; */
+  display: inline-block;
 }
 
 #nav li {
-  /*  li la the block nen no xuong hang => thanh the inline */
-  display: inline-block;
+  /* để xét vị trí cho menu con là subnav */
+  position: relative;
 }
 
-
-#nav li a {
+/* trỏ trực tiếp den the a cua menu cha */
+#nav > li > a {
   color: #fff;
-  text-decoration: none;
-
-  /* bởi vì text sẽ nằm chinh giữa line-height (khi bôi đen)
-  của nó lên khi height của line-height bằng với height
-  của nav thì text vẫn nằm chính giữa và = 4.6rem
-  */
-  line-height: 4.6rem; 
-  padding: 0 2.4rem;
-
-  /* mặc định thẻ a là inline => ko xét được width và height
-  ==>chuyển thành inline-block để xét theo chiều cao của height-line
-  để hover */
-  display: inline-block;
+  text-transform: uppercase;
 }
 
-#nav li:hover a {
-  /* hover vào thẻ li để sau này khi ta hover vào 
-  li của nav cha thì nó sẽ active luôn cả li của
-  nav cha và li của nav con*/
+/* nếu để như thế nay thì cả thẻ a của menu cha và con đều nhận
+=> trỏ thẻ trực tiếp */
+#nav li a {
+  text-decoration: none;
+  line-height: 4.6rem;
+  padding: 0 2.4rem;
+  display: block;
+}
+
+#nav .subnav li:hover a,
+#nav > li:hover > a {
   color: #000;
   background-color: #ccc;
 }
 
+/* khi hover vào thẻ a (li) của menu cha
+thì đồng thời menu con cũng xuất hiện */
+#nav li:hover .subnav {
+  display: block;
+}
+
+/* ẩn menu con trước khi chưa hover */
 #nav .subnav {
   display: none;
+  position: absolute;
+  top: 100%; /* = width của thẻ cha chưa nó là nav = 46px */
+  left: 0;
+  min-width: 16rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#nav .subnav a {
+  color: #000;
+  padding: 0 12px;
+  line-height: 3.8rem;
+}
+
+#header .search-btn {
+  float: right;
+  padding: 0 21px;
+}
+
+#header .search-btn:hover {
+  cursor: pointer;
+  background-color: #f44336;
+}
+
+#header .search-icon {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 4.6rem;
 }
 
 #slider {
+  /* boi vi fan slider chiem ca fan cua  header
+=> margint-top bang voi height cua header  */
+  margin-top: 4.6rem;
 
+  /* lam cho ti le chieu cao bang 1/2 va chieu rong, la 2: 1 */
+  padding-top: 50%;
+  position: relative;
+  background: url("/assets/img/slider/band-slider1.jpg") top center/ cover
+    no-repeat;
+  /* object-fit: cover;  hinh phu kin khung*/
+  /* background-image: url(images/image.png); */
+  /* background-repeat: repeat | repeat-x | repeat-y | no-repeat */
+  /* background-position: top center; */
+}
+
+#slider .text-content {
+  position: absolute;
+  bottom: 4.7rem;
+  color: #fff;
+
+  /* cach 1 cho text nam chinh giua */
+  /* left: 50%;
+  transform: translateX(-50%);
+  text-align: center; */
+
+  /* cach 2 */
+  width: 100%;
+  text-align: center;
+
+  /* cach3 */
+  /* right: 0;
+  left: 0;
+  text-align: center; */
+}
+
+#slider .text-heading {
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+
+#slider .text-desc {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 #content {
+}
 
+#content .content-section {
+  width: 80rem;
+  padding: 64px 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#content .section-heading {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 4px;
+}
+
+#content .section-sub-heading {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 25px;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+#content .about-text {
+  font-size: 15px;
+  margin-top: 25px;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+#content .members-list {
+  margin-top: 48px;
+}
+
+#content .member-name {
+  font-size: 15px;
+}
+
+#content .member-img {
+  margin-top: 15px;
+  width: 154px;
+  border-radius: 4px;
+}
+
+.tour-section {
+  background-color: #000;
+}
+
+.tickets-list {
+  background-color: #fff;
+  margin-top: 40px;
+  list-style: none;
+}
+
+.tickets-list li {
+  color: #757575;
+  font-size: 15px;
+  padding: 11px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tour-section .sold-out {
+  background-color: #f44336;
+  color: #fff;
+  padding: 3px 4px;
+  margin-left: 16px;
+}
+
+.tour-section .quantity {
+  /* mot the inline khi float: right or left thi se tro thanh block */
+  float: right;
+  width: 24px;
+  height: 24px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  margin-top: -3px;
+}
+
+/* places */
+.places-list {
+  margin-top: 32px;
+  padding-bottom: 48px;
+}
+
+.place-img {
+  width: 100%;
+  display: block;
+}
+
+.place-img:hover {
+  opacity: 0.6;
+}
+
+.place-body {
+  padding: 16px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.place-heading {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.place-time {
+  margin-top: 15px;
+  color: #757575;
+}
+
+.place-desc {
+  margin-top: 15px;
+  line-height: 1.4;
+}
+
+.place-buy-btn {
+  color: #fff;
+  background-color: #000;
+  padding: 11px 16px;
+  text-decoration: none;
+  margin-top: 15px;
+  /* the khi padding no cham vao mep cua pt tren no  */
+  display: inline-block;
+}
+
+.place-buy-btn:hover {
+  color: #000;
+  background-color: #ccc;
+}
+
+/* contact form */
+
+.contact-content {
+  margin-top: 48px;
+}
+
+.contact-info {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.font-icon {
+  width: 30px;
+  display: inline-block;
+}
+
+.contact-form {
+  font-size: 15px;
+}
+
+.contact-form .form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.contact-form .form-submit-btn {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  padding: 10px 16px;
+  float: right;
+}
+
+.input-left {
 }
 
 #footer {
-
 }
